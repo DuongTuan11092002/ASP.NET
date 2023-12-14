@@ -1,0 +1,52 @@
+﻿@model PagedList.IPagedList<ShopConnection.SanPham>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="col-sm-9 padding-right">
+    <div class="features_items">
+        <!--features_items-->
+        <h2 class="title text-center">SẢN PHẨM</h2>
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <img src="~/Asset/images/home/@item.HinhAnh" alt="" />
+                            <h2>@item.Gia VNĐ</h2>
+                            <p>@item.TenSanPham</p>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                        </div>
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+                                <h2>@item.Gia VNĐ</h2>
+                                <p>@item.TenSanPham</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào danh sách yêu thích</a></li>
+                            <li><a href="@Url.Action("Details","Shop", new { id = @item.MaSanPham })"><i class="fa fa-plus-square"></i>Xem chi tiết</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        <div class="pagination">
+            @Html.PagedListPager(Model, Page => Url.Action("index", new { Page }))
+        </div>
+    </div>
+
+    <!--features_items-->
+</div>
+
+
+
+

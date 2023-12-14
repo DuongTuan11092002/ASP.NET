@@ -18,13 +18,6 @@ namespace Doan.Models.BUS
         }
 
 
-        //hiển thị danh sách trang chủ bán chạy
-        public static IEnumerable<SanPham> DanhSachHot()
-        {
-            var dbHot = new ShopConnectionDB();
-            return dbHot.Query<SanPham>("select TOP 3 * from SanPham where TinhTrang = 0 ");
-        }
-
 
         //chi tiết sản phẩm
         public static SanPham Chitiet(String a)
@@ -33,6 +26,15 @@ namespace Doan.Models.BUS
             return db.SingleOrDefault<SanPham> ("select * from SanPham where MaSanPham = @0", a);
 
         }
+
+
+        //hiển thị danh sách trang chủ bán chạy
+        public static IEnumerable<SanPham> Top4New()
+        {
+            var dbHot = new ShopConnectionDB();
+            return dbHot.Query<SanPham>("select TOP 3 * from SanPham where GhiChu = N'New'"); //Lấy phần ghi chú là new sẽ được hiển thị sản phẩm bán chạy
+        }
+
 
     }
 }

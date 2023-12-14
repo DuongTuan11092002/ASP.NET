@@ -10,6 +10,8 @@ namespace Doan.Controllers
 {
     public class ShopController : Controller
     {
+        ////////////////////////////////////////////////////USER/////////////////////////////////////////////////////
+        //User
         // GET: Shop
         public ActionResult Index(int page = 1, int pagesize = 6)
         {
@@ -23,7 +25,13 @@ namespace Doan.Controllers
             var dbDetail = ShopOnlineBus.Chitiet(id);
             return View(dbDetail);
         }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+        ////////////////////////////////////////////////////ADMIN/////////////////////////////////////////////////////
+
+        //ADMIN
         // GET: Shop/Create
         public ActionResult Create()
         {

@@ -11,7 +11,7 @@ namespace Doan.Controllers
     {
         public ActionResult Index()
         {
-            var dbHot = ShopOnlineBus.DanhSachHot();
+            var dbHot = ShopOnlineBus.Top4New();
             return View(dbHot);
         }
 

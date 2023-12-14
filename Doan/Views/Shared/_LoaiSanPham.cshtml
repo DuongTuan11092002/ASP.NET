@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ShopConnection.LoaiSanPham>
+
+    @{
+        ViewBag.Title = "Home Page";
+    }
+    <div class="brands_products">
+        <!--brands_products-->
+        <h2>Danh mục</h2>
+        <div class="brands-name">
+            <ul class="nav nav-pills nav-stacked">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a href="@Url.Action("Index","LoaiSanPham", new { id = item.MaLoaiSanPham })"><span class="pull-right"></span>@item.TenLoaiSanPham</a>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+    <!--/brands_products-->
+
