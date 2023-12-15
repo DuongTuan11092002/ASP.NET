@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<div class="container">
+    @using(Html.BeginForm("Create","NhaSanXuatAdmin",FormMethod.Post))
+            {
+        <div class="form-group">
+            <label for="exampleInput1">Mã nhà sản xuất</label>
+            <input type="text" name="MaNhaSanXuat" class="form-control" id="exampleInput1" aria-describedby="emailHelp" placeholder="Vui lòng nhập mã sản xuất" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInput1">Tên nhà sản xuất</label>
+            <input type="text" name="TenNhaSanXuat" class="form-control" id="exampleInput1" placeholder="Vui lòng nhập tên nhà sản xuất" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInput1">Tình trạng</label>
+            <select class="form-control" name="TinhTrang" required>
+                <option value="0" selected>Chưa Khóa</option>
+                <option value="1">Đã ẩn</option>
+
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Thêm</button>
+
+            }
+    
+   
+
+</div>
+

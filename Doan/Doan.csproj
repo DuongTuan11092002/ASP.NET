@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -126,6 +128,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaSanXuatAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\NhaSanXuatController.cs" />
@@ -145,6 +152,140 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\AssetAdmin\css\animate.css\css\animate.css" />
+    <Content Include="Areas\AssetAdmin\css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\AssetAdmin\css\chartist\chartist.css" />
+    <Content Include="Areas\AssetAdmin\css\font-awesome.min.css" />
+    <Content Include="Areas\AssetAdmin\css\ionicons.css" />
+    <Content Include="Areas\AssetAdmin\css\jquery.mCustomScrollbar.css" />
+    <Content Include="Areas\AssetAdmin\css\morris.js\css\morris.css" />
+    <Content Include="Areas\AssetAdmin\css\style.css" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\font-awesome.css" />
+    <Content Include="Areas\AssetAdmin\icon\icofont\css\icofont.css" />
+    <Content Include="Areas\AssetAdmin\icon\icofont\fonts\icofont.svg" />
+    <Content Include="Areas\AssetAdmin\icon\themify-icons\fonts\themify.svg" />
+    <Content Include="Areas\AssetAdmin\icon\themify-icons\themify-icons.css" />
+    <Content Include="Areas\AssetAdmin\images\auth\logo-dark.png" />
+    <Content Include="Areas\AssetAdmin\images\auth\Logo-small-bottom.png" />
+    <Content Include="Areas\AssetAdmin\images\auth\logo.png" />
+    <Content Include="Areas\AssetAdmin\images\avatar-1.jpg" />
+    <Content Include="Areas\AssetAdmin\images\avatar-2.jpg" />
+    <Content Include="Areas\AssetAdmin\images\avatar-3.jpg" />
+    <Content Include="Areas\AssetAdmin\images\avatar-4.jpg" />
+    <Content Include="Areas\AssetAdmin\images\avatar-5.jpg" />
+    <Content Include="Areas\AssetAdmin\images\avatar-blank.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\blog-130.png" />
+    <Content Include="Areas\AssetAdmin\images\blog\blog-r-1.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\blog-r-2.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\blog-r-3.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\blog-single-1.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\blog-single.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\blog-small-bg-1.png" />
+    <Content Include="Areas\AssetAdmin\images\blog\st_gallery1.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\st_gallery2.jpg" />
+    <Content Include="Areas\AssetAdmin\images\blog\st_gallery3.jpg" />
+    <Content Include="Areas\AssetAdmin\images\breadcrumb-bg.jpg" />
+    <Content Include="Areas\AssetAdmin\images\browser\chrome.png" />
+    <Content Include="Areas\AssetAdmin\images\browser\firefox.png" />
+    <Content Include="Areas\AssetAdmin\images\browser\ie.png" />
+    <Content Include="Areas\AssetAdmin\images\browser\opera.png" />
+    <Content Include="Areas\AssetAdmin\images\browser\safari.png" />
+    <Content Include="Areas\AssetAdmin\images\details_close.png" />
+    <Content Include="Areas\AssetAdmin\images\details_open.png" />
+    <Content Include="Areas\AssetAdmin\images\faq_man.png" />
+    <Content Include="Areas\AssetAdmin\images\favicon.ico" />
+    <Content Include="Areas\AssetAdmin\images\logo-blue.png" />
+    <Content Include="Areas\AssetAdmin\images\logo-compact.png" />
+    <Content Include="Areas\AssetAdmin\images\logo.png" />
+    <Content Include="Areas\AssetAdmin\images\mCSB_buttons.png" />
+    <Content Include="Areas\AssetAdmin\images\mega-menu\01.jpg" />
+    <Content Include="Areas\AssetAdmin\images\mega-menu\02.jpg" />
+    <Content Include="Areas\AssetAdmin\images\mega-menu\03.jpg" />
+    <Content Include="Areas\AssetAdmin\images\select-arrow.png" />
+    <Content Include="Areas\AssetAdmin\images\tooltip\Euclid.png" />
+    <Content Include="Areas\AssetAdmin\images\tooltip\shape1.svg" />
+    <Content Include="Areas\AssetAdmin\images\tooltip\tooltip1.svg" />
+    <Content Include="Areas\AssetAdmin\images\user-bg.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\AUSTRALIA.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\BRAZIL.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\DIGITALPEN.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\GERMANY.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\IPAD.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\PHONE1.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\PHONE2.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\PHONE3.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\PHONE4.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\prod1.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\prod2.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\prod3.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\prod4.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\TABLET.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\UK.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\USA.jpg" />
+    <Content Include="Areas\AssetAdmin\images\widget\wather2bottom.png" />
+    <Content Include="Areas\AssetAdmin\images\widget\wather2m.png" />
+    <Content Include="Areas\AssetAdmin\images\widget\wather2star1.png" />
+    <Content Include="Areas\AssetAdmin\images\widget\wather2star2.png" />
+    <Content Include="Areas\AssetAdmin\images\widget\watherbottom.png" />
+    <Content Include="Areas\AssetAdmin\images\widget\wathernature.png" />
+    <Content Include="Areas\AssetAdmin\images\widget\watherstar1.png" />
+    <Content Include="Areas\AssetAdmin\images\widget\watherstar2.png" />
+    <Content Include="Areas\AssetAdmin\js\bootstrap-growl.min.js" />
+    <Content Include="Areas\AssetAdmin\js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\AssetAdmin\js\chart.js\Chart.js" />
+    <Content Include="Areas\AssetAdmin\js\common-pages.js" />
+    <Content Include="Areas\AssetAdmin\js\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="Areas\AssetAdmin\js\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Areas\AssetAdmin\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Areas\AssetAdmin\js\jquery.mousewheel.min.js" />
+    <Content Include="Areas\AssetAdmin\js\jquery\jquery.min.js" />
+    <Content Include="Areas\AssetAdmin\js\modernizr\css-scrollbars.js" />
+    <Content Include="Areas\AssetAdmin\js\modernizr\modernizr.js" />
+    <Content Include="Areas\AssetAdmin\js\morris-custom-chart.js" />
+    <Content Include="Areas\AssetAdmin\js\morris.js\morris.js" />
+    <Content Include="Areas\AssetAdmin\js\pcoded.min.js" />
+    <Content Include="Areas\AssetAdmin\js\popper.js\popper.min.js" />
+    <Content Include="Areas\AssetAdmin\js\raphael\raphael.min.js" />
+    <Content Include="Areas\AssetAdmin\js\script.js" />
+    <Content Include="Areas\AssetAdmin\js\script.min.js" />
+    <Content Include="Areas\AssetAdmin\js\SmoothScroll.js" />
+    <Content Include="Areas\AssetAdmin\js\vertical-layout.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\accordion\accordion.js" />
+    <Content Include="Areas\AssetAdmin\pages\accordion\accordion.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\css\amchart.css" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\css\export.css" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\js\amcharts.js" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\js\custom-amchart.js" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\js\export.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\js\images\dragIconRoundBig.svg" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\js\images\dragIconRoundBigH.svg" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\js\light.js" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\amchart\js\serial.js" />
+    <Content Include="Areas\AssetAdmin\pages\dashboard\custom-dashboard.js" />
+    <Content Include="Areas\AssetAdmin\pages\google-maps\gmaps.js" />
+    <Content Include="Areas\AssetAdmin\pages\google-maps\google-maps.js" />
+    <Content Include="Areas\AssetAdmin\pages\icon-modal.js" />
+    <Content Include="Areas\AssetAdmin\pages\notification\notification.css" />
+    <Content Include="Areas\AssetAdmin\pages\notification\notification.js" />
+    <Content Include="Areas\AssetAdmin\pages\todo\todo.js" />
+    <Content Include="Areas\AssetAdmin\pages\waves\css\waves.min.css" />
+    <Content Include="Areas\AssetAdmin\pages\waves\js\waves.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\amcharts.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\amcharts.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\export.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\gauge.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\gauge.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\light.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\light.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\pie.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\pie.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\serial.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\amchart\serial.min.js" />
+    <Content Include="Areas\AssetAdmin\pages\widget\excanvas.js" />
     <Content Include="Asset\css\animate.css" />
     <Content Include="Asset\css\bootstrap.min.css" />
     <Content Include="Asset\css\font-awesome.min.css" />
@@ -155,8 +296,6 @@
     <Content Include="Asset\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Asset\images\404\404.png" />
-    <Content Include="Asset\images\Banner\banner1.png" />
-    <Content Include="Asset\images\Banner\banner2.png" />
     <Content Include="Asset\images\blog\blog-one.jpg" />
     <Content Include="Asset\images\blog\blog-three.jpg" />
     <Content Include="Asset\images\blog\blog-two.jpg" />
@@ -168,8 +307,6 @@
     <Content Include="Asset\images\cart\one.png" />
     <Content Include="Asset\images\cart\three.png" />
     <Content Include="Asset\images\cart\two.png" />
-    <Content Include="Asset\images\home\banner1.png" />
-    <Content Include="Asset\images\home\banner2.png" />
     <Content Include="Asset\images\home\bg_border.png" />
     <Content Include="Asset\images\home\gallery1.jpg" />
     <Content Include="Asset\images\home\gallery2.jpg" />
@@ -182,9 +319,7 @@
     <Content Include="Asset\images\home\iframe2.png" />
     <Content Include="Asset\images\home\iframe3.png" />
     <Content Include="Asset\images\home\iframe4.png" />
-    <Content Include="Asset\images\home\ipad.png" />
     <Content Include="Asset\images\home\iphone 11.png" />
-    <Content Include="Asset\images\home\iphone15.png" />
     <Content Include="Asset\images\home\logo.png" />
     <Content Include="Asset\images\home\map.png" />
     <Content Include="Asset\images\home\new.png" />
@@ -203,10 +338,8 @@
     <Content Include="Asset\images\home\recommend2.jpg" />
     <Content Include="Asset\images\home\recommend3.jpg" />
     <Content Include="Asset\images\home\sale.png" />
-    <Content Include="Asset\images\home\samsung1.png" />
     <Content Include="Asset\images\home\searchicon.png" />
     <Content Include="Asset\images\home\shipping.jpg" />
-    <Content Include="Asset\images\home\tabletSS.png" />
     <Content Include="Asset\images\product-details\1.jpg" />
     <Content Include="Asset\images\product-details\new.jpg" />
     <Content Include="Asset\images\product-details\rating.png" />
@@ -245,11 +378,58 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
+    <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_MainLayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\MainAdmin\Index.cshtml" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\animated.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\core.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\icons.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\larger.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\list.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\mixins.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\path.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\screen-reader.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\stacked.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\less\variables.less" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\font-awesome.css.map" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_animated.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\AssetAdmin\icon\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\AssetAdmin\icon\icofont\fonts\icofont.eot" />
+    <Content Include="Areas\AssetAdmin\icon\icofont\fonts\icofont.ttf" />
+    <Content Include="Areas\AssetAdmin\icon\icofont\fonts\icofont.woff" />
+    <Content Include="Areas\AssetAdmin\icon\themify-icons\fonts\themify.eot" />
+    <Content Include="Areas\AssetAdmin\icon\themify-icons\fonts\themify.ttf" />
+    <Content Include="Areas\AssetAdmin\icon\themify-icons\fonts\themify.woff" />
     <Content Include="Asset\fonts\fontawesome-webfont.woff" />
     <Content Include="Asset\fonts\FontAwesome.otf" />
     <Content Include="Asset\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
-    <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -287,6 +467,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -302,6 +483,7 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
@@ -309,6 +491,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

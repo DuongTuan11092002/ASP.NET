@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ShopConnection.NhaSanXuat>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+
+<div class="container">
+    <h1 class="text-center text-uppercase m-3">Quản lý nhà sản xuất</h1>
+    <br />
+    <div class="btn btn-success m-3 rounded text-uppercase"><a href="@Url.Action("Create","NhaSanXuatAdmin")" class="text-white">Thêm nhà sản xuất</a></div>
+    <br />
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center"></th>
+                <th scope="col" class="text-center">Mã nhà sản xuất</th>
+                <th scope="col" class="text-center">Tên nhà sản xuất</th>
+                <th scope="col" class="text-center">Tình trạng</th>
+                <th scope="col" class="text-center">
+                    Quản lý
+                    <i class="ti-plus"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <th scope="row" class="text-center"></th>
+                <td class="text-center">@item.MaNhaSanXuat</td>
+                <td class="text-center">@item.TenNhaSanXuat</td>
+                <td class="text-center">@item.TinhTrang</td>
+
+                <td class="text-center">
+                    <a href="" class="btn btn-success rounded text-white">Sửa <i class="ti-write"></i></a>  ||
+                    <a href="" class="btn btn-warning rounded text-black">  Xóa<i class="ti-trash"></i></a>
+                </td>
+
+            </tr>
+
+            }
+           
+        </tbody>
+    </table>
+
+</div>

@@ -19,5 +19,10 @@ namespace Doan.Models.BUS
             var dbChiTiet = new ShopConnectionDB();
             return dbChiTiet.Query<SanPham>("select * from SanPham where MaNhaSanXuat = '"+id+"'");
         }
+        public static void ThemNSX(NhaSanXuat nsx)
+        {
+            var dbThem = new ShopConnectionDB();
+            dbThem.Insert(nsx);
+        }
     }
 }
